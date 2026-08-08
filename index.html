@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="yokosso-portfolio — a minimal showcase of premium web projects.">
+  <title>yokosso-portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#projects" class="header__logo">yokosso-portfolio</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <ul class="nav__list">
+          <li><a href="#projects" class="nav__link nav__link--active">Projects</a></li>
+          <li><a href="https://github.com/yokossoo" class="nav__link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="projects__grid">
+          <article
+            class="project-card project-card--interactive project-card--smartserve"
+            id="smartserve-card"
+            tabindex="0"
+            role="button"
+            aria-expanded="false"
+            aria-controls="smartserve-detail"
+            aria-label="Open SmartServe AI project details"
+            data-detail="smartserve-detail"
+          >
+            <div class="project-card__face project-card__face--smartserve">
+              <h2 class="project-card__title">SmartServe <span class="project-card__accent project-card__accent--smartserve">AI</span></h2>
+            </div>
+          </article>
+
+          <article
+            class="project-card project-card--interactive project-card--sity"
+            id="sity-card"
+            tabindex="0"
+            role="button"
+            aria-expanded="false"
+            aria-controls="sity-detail"
+            aria-label="Open Sity project details"
+            data-detail="sity-detail"
+          >
+            <div class="project-card__face project-card__face--sity">
+              <h2 class="project-card__title">Sity</h2>
+            </div>
+          </article>
+
+          <article class="project-card project-card--placeholder" aria-hidden="true"></article>
+          <article class="project-card project-card--placeholder" aria-hidden="true"></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="project-detail" id="smartserve-detail" aria-hidden="true">
+    <div class="project-detail__backdrop" data-close-detail></div>
+    <div class="project-detail__panel" role="dialog" aria-modal="true" aria-labelledby="smartserve-detail-title">
+      <button class="project-detail__close" type="button" aria-label="Close project details" data-close-detail>
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="project-detail__content">
+        <h2 class="project-detail__title" id="smartserve-detail-title">SmartServe AI</h2>
+
+        <p class="project-detail__intro">
+          An intelligent virtual assistant for restaurants that captures late-night table reservations and answers guest questions 24/7. It keeps conversations natural and friendly, automatically boosts sales by suggesting chef specials from the menu, and sends instant booking notifications directly to the manager's phone for a quick, one-tap approval.
+        </p>
+
+        <a href="https://smart-serve-ai.com/" class="project-detail__link" target="_blank" rel="noopener noreferrer">smart-serve-ai.com</a>
+
+        <div class="project-detail__screenshots">
+          <figure class="project-detail__screenshot-wrap">
+            <img src="smartservaai1.png" alt="SmartServe AI landing page screenshot" class="project-detail__screenshot" loading="lazy">
+          </figure>
+          <figure class="project-detail__screenshot-wrap">
+            <img src="smartservaai2.png" alt="SmartServe AI admin panel screenshot" class="project-detail__screenshot" loading="lazy">
+          </figure>
+        </div>
+
+        <h3 class="project-detail__heading">Tech</h3>
+
+        <ul class="project-detail__list">
+          <li>
+            <strong>State Machine Architecture:</strong>
+            Backed by a strict, 3,900-line server-authoritative state machine that safely processes and structuralizes conversational data instead of letting the LLM talk directly to the database.
+          </li>
+          <li>
+            <strong>Proactive Revenue Generation:</strong>
+            Implements smart, context-aware menu upselling with built-in safeguards to cap recommendations and prevent chat fatigue.
+          </li>
+          <li>
+            <strong>Production-Grade Security:</strong>
+            Equipped with active DB-backed rate limiting to protect OpenAI API budgets, along with HMAC-signed webhooks, secure HttpOnly cookie sessions, and transcript-validated cancellation tokens.
+          </li>
+          <li>
+            <strong>Real-Time Data Sync:</strong>
+            Leverages Pusher API infrastructure alongside Telegram Bot APIs to maintain an instant, zero-latency feedback loop between guests, managers, and the admin dashboard.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-detail" id="sity-detail" aria-hidden="true">
+    <div class="project-detail__backdrop" data-close-detail></div>
+    <div class="project-detail__panel" role="dialog" aria-modal="true" aria-labelledby="sity-detail-title">
+      <button class="project-detail__close" type="button" aria-label="Close project details" data-close-detail>
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="project-detail__content">
+        <h2 class="project-detail__title" id="sity-detail-title">Sity</h2>
+
+        <p class="project-detail__intro">
+          A blazing-fast, zero-dependency site editor built with Vanilla JS. Features a single-source-of-truth state architecture for effortless theme switching and a custom SVG visual hierarchy engine for multi-page navigation.
+        </p>
+
+        <a href="https://sity-psi.vercel.app/#templates" class="project-detail__link" target="_blank" rel="noopener noreferrer">sity-psi.vercel.app</a>
+
+        <div class="project-detail__screenshots">
+          <figure class="project-detail__screenshot-wrap">
+            <img src="sity1.png" alt="Sity landing page screenshot" class="project-detail__screenshot" loading="lazy">
+          </figure>
+          <figure class="project-detail__screenshot-wrap">
+            <img src="sity2.png" alt="Sity editor interface screenshot" class="project-detail__screenshot" loading="lazy">
+          </figure>
+        </div>
+
+        <h3 class="project-detail__heading">Tech</h3>
+
+        <ul class="project-detail__list">
+          <li>
+            <strong>Zero-Dependency Core:</strong>
+            Engineered using pure Vanilla JS and ESM — achieves instant canvas response times with zero framework bloat.
+          </li>
+          <li>
+            <strong>Single Source of Truth:</strong>
+            Content is completely decoupled from visual styling, allowing users to switch design themes on the fly without losing text or media.
+          </li>
+          <li>
+            <strong>Visual Tree Engine:</strong>
+            Custom SVG-rendered tab connectors that dynamically display parent–child page relationships with clean orthogonal routing.
+          </li>
+          <li>
+            <strong>Clean Code Export:</strong>
+            Generates lean, production-ready, valid HTML/CSS that can be hosted anywhere instantly.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__year">2026</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
