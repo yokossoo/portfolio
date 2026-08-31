@@ -239,6 +239,26 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
+/* Hueco Mundo Games card */
+.project-card--hueco:hover,
+.project-card--hueco.is-active {
+  transform: translateY(-5px);
+  border-color: rgba(150, 196, 176, 0.32);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(150, 196, 176, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.project-card__face--hueco::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;
+  background:
+    radial-gradient(ellipse at 28% 22%, rgba(150, 196, 176, 0.16) 0%, transparent 52%),
+    radial-gradient(ellipse at 76% 78%, rgba(168, 152, 196, 0.12) 0%, transparent 48%);
+  pointer-events: none;
+}
+
+.project-card__accent--hueco { color: #9bb8a8; }
+
 /* Detail panel */
 .project-detail {
   position: fixed;
@@ -363,6 +383,10 @@ ul { list-style: none; }
   overflow: hidden;
   background: var(--bg-elevated);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-detail__screenshot-wrap:only-child {
+  grid-column: 1 / -1;
 }
 
 .project-detail__screenshot {

@@ -57,7 +57,21 @@
             </div>
           </article>
 
-          <article class="project-card project-card--placeholder" aria-hidden="true"></article>
+          <article
+            class="project-card project-card--interactive project-card--hueco"
+            id="hueco-card"
+            tabindex="0"
+            role="button"
+            aria-expanded="false"
+            aria-controls="hueco-detail"
+            aria-label="Open Hueco Mundo Games project details"
+            data-detail="hueco-detail"
+          >
+            <div class="project-card__face project-card__face--hueco">
+              <h2 class="project-card__title">Hueco Mundo <span class="project-card__accent project-card__accent--hueco">Games</span></h2>
+            </div>
+          </article>
+
           <article class="project-card project-card--placeholder" aria-hidden="true"></article>
         </div>
       </div>
@@ -156,6 +170,48 @@
           <li>
             <strong>Clean Code Export:</strong>
             Generates lean, production-ready, valid HTML/CSS that can be hosted anywhere instantly.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-detail" id="hueco-detail" aria-hidden="true">
+    <div class="project-detail__backdrop" data-close-detail></div>
+    <div class="project-detail__panel" role="dialog" aria-modal="true" aria-labelledby="hueco-detail-title">
+      <button class="project-detail__close" type="button" aria-label="Close project details" data-close-detail>
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="project-detail__content">
+        <h2 class="project-detail__title" id="hueco-detail-title">Hueco Mundo Games</h2>
+
+        <p class="project-detail__intro">
+          A hyper-minimal portal for original free-to-play worlds — browse a studio catalog, then drop straight into a playable build in the browser. Designed as a quiet, glass-minimal studio: a full-viewport 3D shader that follows the cursor, a filterable grid of worlds, and a landing-first launch that hands the player into the game without leaving the portal. Titles like ZombieMMMonster play in place with fullscreen and a one-tap return to the catalog.
+        </p>
+
+        <a href="https://hueco-mundo-games.vercel.app/" class="project-detail__link" target="_blank" rel="noopener noreferrer">hueco-mundo-games.vercel.app</a>
+
+        <div class="project-detail__screenshots">
+          <figure class="project-detail__screenshot-wrap">
+            <img src="huecomundo1.png" alt="Hueco Mundo Games landing page screenshot" class="project-detail__screenshot" loading="lazy">
+          </figure>
+        </div>
+
+        <h3 class="project-detail__heading">Tech</h3>
+
+        <ul class="project-detail__list">
+          <li>
+            <strong>Custom GLSL Light Field:</strong>
+            The hero is a real-time React Three Fiber shader — FBM noise, mouse-driven refraction, and chromatic aberration — rendered as a full-screen light field instead of a static image. Pointer position is lerped so the surface feels liquid, not twitchy.
+          </li>
+          <li>
+            <strong>Portal-to-Play Pipeline:</strong>
+            Games live as isolated static builds. A prebuild script copies each sibling dist into /public (real files, not symlinks) so Git and Vercel can serve them. Selecting a world opens a landing-first iframe stage: scroll is locked, keyboard focus is handed to the frame, and a veil covers load so the player never sees a half-painted canvas.
+          </li>
+          <li>
+            <strong>Tactile Interaction Layer:</strong>
+            Every click fires a baked 512px SVG displacement lens — a glass dome plus concentric waves, with chromatic split and damped scale on compact controls so buttons stay readable. UI feedback is synthesized in Web Audio (click + whoosh), with mute, Lenis smooth scroll, and prefers-reduced-motion respected.
           </li>
         </ul>
       </div>
