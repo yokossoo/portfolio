@@ -72,7 +72,20 @@
             </div>
           </article>
 
-          <article class="project-card project-card--placeholder" aria-hidden="true"></article>
+          <article
+            class="project-card project-card--interactive project-card--teachchoice"
+            id="teachchoice-card"
+            tabindex="0"
+            role="button"
+            aria-expanded="false"
+            aria-controls="teachchoice-detail"
+            aria-label="Open TeachChoice project details"
+            data-detail="teachchoice-detail"
+          >
+            <div class="project-card__face project-card__face--teachchoice">
+              <h2 class="project-card__title">Teach<span class="project-card__accent project-card__accent--teachchoice">Choice</span></h2>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -218,11 +231,68 @@
     </div>
   </div>
 
+  <div class="project-detail" id="teachchoice-detail" aria-hidden="true">
+    <div class="project-detail__backdrop" data-close-detail></div>
+    <div class="project-detail__panel" role="dialog" aria-modal="true" aria-labelledby="teachchoice-detail-title">
+      <button class="project-detail__close" type="button" aria-label="Close project details" data-close-detail>
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="project-detail__content">
+        <h2 class="project-detail__title" id="teachchoice-detail-title">TeachChoice</h2>
+
+        <p class="project-detail__intro">
+          An interactive learning platform where engineers practice judgment in realistic scenarios — architecture and system-design questions that show why one approach holds under load while another does not. Two tracks, three levels, and layered explanations after every answer. Sign in to keep progress; Pro unlocks the deeper banks.
+        </p>
+
+        <a href="https://teachchoice.com/" class="project-detail__link" target="_blank" rel="noopener noreferrer">teachchoice.com</a>
+
+        <div class="project-detail__screenshots">
+          <figure class="project-detail__screenshot-wrap">
+            <img src="teachchoice1.png" alt="TeachChoice home screen with architecture and system design tracks" class="project-detail__screenshot" loading="lazy">
+          </figure>
+          <figure class="project-detail__screenshot-wrap">
+            <img src="teachchoice2.png" alt="TeachChoice scenario question with progress sidebar" class="project-detail__screenshot" loading="lazy">
+          </figure>
+        </div>
+
+        <h3 class="project-detail__heading">Tech</h3>
+
+        <ul class="project-detail__list">
+          <li>
+            <strong>Server-Authoritative Grading:</strong>
+            The client submits option IDs, not scores. A Neon-backed grader re-scores every attempt against the catalog, so a forged isCorrect flag never counts — and paid levels stay locked until the previous one is actually passed.
+          </li>
+          <li>
+            <strong>Passwordless Auth + Guest Merge:</strong>
+            Email OTP via Resend, hashed short-lived codes in Postgres, HMAC-signed sessions. Guest progress in localStorage is merged once at sign-in, keeping the stronger record per level.
+          </li>
+          <li>
+            <strong>Gated Curriculum:</strong>
+            Foundation ships with the Free client. Advanced and Serious banks are fetched only after a signed Lemon Squeezy webhook writes an active subscription — Pro content never rides along for unpaid users.
+          </li>
+          <li>
+            <strong>Locale-Parity Content Engine:</strong>
+            180 authored scenario questions in English and Russian, with build-time validators for level counts, option IDs, and answer keys. Explanations cover why it is correct, what changes at scale, and when the weaker option still works.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="container footer__inner">
       <p class="footer__year">2026</p>
     </div>
   </footer>
+
+  <div class="screenshot-lightbox" id="screenshot-lightbox" aria-hidden="true">
+    <div class="screenshot-lightbox__backdrop" data-close-lightbox></div>
+    <button class="screenshot-lightbox__close" type="button" aria-label="Close full-size screenshot" data-close-lightbox>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <img class="screenshot-lightbox__image" id="screenshot-lightbox-image" alt="">
+  </div>
 
   <script src="script.js"></script>
 </body>

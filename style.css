@@ -240,24 +240,85 @@ ul { list-style: none; }
 }
 
 /* Hueco Mundo Games card */
+.project-card--hueco {
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(255, 255, 255, 0.16) 0%, transparent 48%),
+    linear-gradient(165deg, #161618 0%, #0a0a0c 52%, #111111 100%);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.project-card--hueco .project-card__title {
+  color: #c8c8c8;
+  font-weight: 500;
+}
+
 .project-card--hueco:hover,
 .project-card--hueco.is-active {
   transform: translateY(-5px);
-  border-color: rgba(150, 196, 176, 0.32);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(150, 196, 176, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .project-card__face--hueco::before {
   content: "";
   position: absolute;
-  inset: -20% -10%;
-  background:
-    radial-gradient(ellipse at 28% 22%, rgba(150, 196, 176, 0.16) 0%, transparent 52%),
-    radial-gradient(ellipse at 76% 78%, rgba(168, 152, 196, 0.12) 0%, transparent 48%);
+  inset: -12% -6%;
+  background: radial-gradient(ellipse at 28% 20%, rgba(255, 255, 255, 0.18) 0%, transparent 52%);
   pointer-events: none;
 }
 
-.project-card__accent--hueco { color: #9bb8a8; }
+.project-card--hueco .project-card__face::after {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.1) 0%, transparent 42%);
+}
+
+.project-card__accent--hueco {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* TeachChoice card */
+.project-card--teachchoice {
+  background:
+    radial-gradient(ellipse at 16% 14%, rgba(10, 10, 10, 0.04) 0%, transparent 48%),
+    linear-gradient(165deg, #ffffff 0%, #f7f7f8 52%, #fafafa 100%);
+  border-color: rgba(10, 10, 10, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.project-card--teachchoice .project-card__title {
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+.project-card--teachchoice:hover,
+.project-card--teachchoice.is-active {
+  transform: translateY(-5px);
+  border-color: rgba(10, 10, 10, 0.28);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(10, 10, 10, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.project-card__face--teachchoice::before {
+  content: "";
+  position: absolute;
+  inset: -12% -6%;
+  background: radial-gradient(ellipse at 28% 20%, rgba(10, 10, 10, 0.05) 0%, transparent 52%);
+  pointer-events: none;
+}
+
+.project-card--teachchoice .project-card__face::after {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.55) 0%, transparent 42%);
+}
+
+.project-card__accent--teachchoice {
+  display: inline-block;
+  font-weight: 700;
+  background-image: linear-gradient(180deg, #0a0a0a 0%, #6e6e6e 48%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
 
 /* Detail panel */
 .project-detail {
@@ -376,6 +437,7 @@ ul { list-style: none; }
 }
 
 .project-detail__screenshot-wrap {
+  position: relative;
   margin: 0;
   aspect-ratio: 16 / 10;
   border-radius: var(--radius);
@@ -395,6 +457,123 @@ ul { list-style: none; }
   display: block;
   object-fit: cover;
   object-position: top center;
+}
+
+.project-detail__expand {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(13, 14, 18, 0.42);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  color: rgba(255, 255, 255, 0.94);
+  cursor: pointer;
+  transition: color var(--ease), border-color var(--ease), background-color var(--ease), transform var(--ease);
+}
+
+.project-detail__expand:hover,
+.project-detail__expand:focus-visible {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(13, 14, 18, 0.62);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.project-detail__expand svg {
+  width: 11px;
+  height: 11px;
+  display: block;
+}
+
+.screenshot-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.screenshot-lightbox.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.screenshot-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 8, 11, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.22s ease-out;
+}
+
+.screenshot-lightbox.is-open .screenshot-lightbox__backdrop {
+  opacity: 1;
+}
+
+.screenshot-lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--ease), border-color var(--ease), background-color var(--ease);
+}
+
+.screenshot-lightbox__close:hover,
+.screenshot-lightbox__close:focus-visible {
+  color: var(--accent-hover);
+  border-color: var(--accent-soft);
+  background: rgba(255, 107, 0, 0.08);
+  outline: none;
+}
+
+.screenshot-lightbox__image {
+  position: relative;
+  z-index: 1;
+  max-width: min(50vw, 640px);
+  max-height: 50vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+}
+
+.screenshot-lightbox.is-open .screenshot-lightbox__image {
+  opacity: 1;
+  transform: none;
 }
 
 .project-detail__heading {
@@ -442,4 +621,6 @@ ul { list-style: none; }
   .project-detail { padding: 1rem; }
   .project-detail__content { padding: 0 1rem 1rem; }
   .project-detail__screenshots { grid-template-columns: 1fr; }
+  .screenshot-lightbox { padding: 3.5rem 1rem 1rem; }
+  .screenshot-lightbox__image { max-width: 88vw; max-height: 46vh; }
 }
